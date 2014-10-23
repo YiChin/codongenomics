@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/blue.min.css" />
+<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+<script src="lib/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/sweet-alert.css">
+<link rel="icon" href="img/icon.png">
+<title>Codon Genomics</title>
+<script type = "text/javascript">
+function Verify1()
+{
+	var name = parseInt(document.myForm.name.value);
+	var email = parseInt(document.myForm.email.value);
+	var pro_id = parseInt(document.myForm.pro_id.value);
+	var pro_name = parseInt(document.myForm.pro_name.value);
+	
+	
+	if (myForm.name.value == "")
+	{
+		alert("You did not enter a Staff Name.\n" + "Please enter now.");
+		myForm.name.focus();
+		return false;
+	}
+	
+	if (myForm.email.value == "")
+	{
+		alert("You did not enter an email.\n" + "Please enter now.");
+		myForm.email.focus();
+		return false;
+	}
+	
+	if (myForm.pro_id.value == "")
+	{
+		alert("You did not enter project ID.\n" + "Please enter now.");
+		myForm.pro_id.focus();
+		return false;
+	}
+	
+	if (myForm.pro_name.value == "")
+	{
+		alert("You did not enter project name.\n" + "Please enter now.");
+		myForm.pro_name.focus();
+		return false;
+	}
+	
+	else {
+alert("You have successfully assign a staff.\n" );
+return true;
+      }
+}
+</script>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1><img src="img/codongenomics.png" width="247"></h1>
+    <a href="#panel" data-icon="bars">Admin</a>
+    </div>
+
+	<div data-role="navbar">
+		<ul>
+		<li><a href="admin.php" data-icon="home">Home</a></li>
+		<li><a href="mypage.php" data-icon="heart" data-transition="flow">About</a></li>
+        <li><a href="assign.php" data-icon="alert" data-transition="flow" class="ui-btn-active ui-state-persist">Assign</a></li>
+		<!--<li><a href="#" data-icon="gear">Setup</a></li>-->
+		</ul>
+	</div>
+    
+<div data-role="panel" data-display="overlay" id="panel">
+    <h3>Personal Details</h3>
+	<ul data-role="listview" data-inset="false">
+		<li><a href="adprofile.php" data-direction="reverse">Profile</a></li>
+        <li><a href="adminlogout.php" data-direction="reverse" data-ajax="false">Log Out</a></li>
+    </ul>
+</div>
+
+  <div data-role="main" class="ui-content">
+  	<form data-ajax="false" method="post" action="assignstaff.php" name="myForm" id="myForm" onSubmit="return Verify1();">
+	<div id="register">
+    <div class="signup-group">
+    <p>Assign Staff</p>
+    <input type="text" name="name" id="name" placeholder="Staff Name" />
+    <input type="text" name="email" id="email" placeholder="Email Address" />
+    <input type="text" name="pro_id" id="pro_id" placeholder="Project ID" />
+    <input type="text" name="pro_name" id="pro_name" placeholder="Project Name" />
+    <div data-role="controlgroup" data-type="horizontal">
+    <p><button type="submit">Assign Staff</button></p>
+    </div>
+    </div>
+    </div>
+   
+   </form>
+</div> 
+
+</body>
+</html>
